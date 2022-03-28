@@ -15,10 +15,14 @@
           <td>{{ opinion.name }}</td>
           <td>{{ opinion.game }}</td>
           <td>{{ opinion.opinion }}</td>
-          <td><button class="btn btn-danger">Eliminar</button></td>
+          <td>
+            <button class="btn btn-danger" @click="deleteOpinion(opinion)">
+              Eliminar
+            </button>
+          </td>
           <td>
             <button class="btn btn-info">
-              <router-link to="/edit_opinion">Editar</router-link>
+              <router-link :to="'/edit_opinion/' + (i + 1)">Editar</router-link>
             </button>
           </td>
         </tr>
@@ -29,8 +33,15 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "TableOpinions",
+  methods: {
+    ...mapMutations(["DELETE_OPINION"]),
+    deleteOpinion(opinion) {
+      this.DELETE_OPINION(opinion);
+    },
+  },
   props: {
     opinions: {
       type: Array,

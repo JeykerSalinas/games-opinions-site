@@ -27,6 +27,9 @@ export default new Vuex.Store({
     SET_OPINION(state, payload) {
       state.myOpinions.push(payload);
     },
+    DELETE_OPINION(state, payload) {
+      state.myOpinions.splice(payload, 1);
+    },
   },
   actions: {
     async getData({ commit }) {

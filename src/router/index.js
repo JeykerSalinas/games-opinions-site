@@ -26,8 +26,15 @@ const routes = [
   },
   {
     path: "/edit_opinion",
-    name: "edit",
+    name: "edit_opinion",
     component: () => import("../views/EditOpinionView.vue"),
+    children: [
+      {
+        path: ":id",
+        name: "opinion",
+        component: () => import("../views/OpinionView.vue"),
+      },
+    ],
   },
   {
     path: "/*",
