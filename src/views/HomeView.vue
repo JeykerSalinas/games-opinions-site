@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <GridCards :myData="myData" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import GridCards from "@/components/GridCards.vue";
+import { mapState } from "vuex";
 export default {
   name: "HomeView",
+  computed: {
+    ...mapState(["myData"]),
+  },
   components: {
-    HelloWorld,
+    GridCards,
   },
 };
 </script>

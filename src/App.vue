@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <router-link class="nav-link active" to="/home"
+                <router-link class="nav-link active" to="/"
                   ><span class="material-icons-outlined"></span>
                   Home</router-link
                 >
