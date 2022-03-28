@@ -4,9 +4,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    myData: [],
+  },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    SET_DATA(state, payload) {
+      state.myData = payload;
+    },
+  },
+  actions: {
+    async getData({ commit }) {
+      const response = await fetch("./games.json");
+      const data = await response.json();
+      commit("SET_DATA", data);
+    },
+  },
   modules: {},
 });
