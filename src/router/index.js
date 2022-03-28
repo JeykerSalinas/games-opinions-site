@@ -24,6 +24,16 @@ const routes = [
         /* webpackChunkName: "administracion" */ "../views/AdministracionView.vue"
       ),
   },
+  {
+    path: "/edit_opinion",
+    name: "edit",
+    component: () => import("../views/EditOpinionView.vue"),
+  },
+  {
+    path: "/*",
+    name: "notFound",
+    component: () => import("../views/NotFoundView.vue"),
+  },
 ];
 
 const router = new VueRouter({

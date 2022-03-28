@@ -6,11 +6,26 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     myData: [],
+    myOpinions: [
+      {
+        name: "Jeyker Salinas",
+        game: "The Last of Us",
+        opinion: "Me gusta mucho el curso de Vue.js",
+      },
+      {
+        name: "Jeyker Salinas",
+        game: "The Last of Us",
+        opinion: "Me gusta mucho el curso de Vue.js",
+      },
+    ],
   },
   getters: {},
   mutations: {
     SET_DATA(state, payload) {
       state.myData = payload;
+    },
+    SET_OPINION(state, payload) {
+      state.myOpinions.push(payload);
     },
   },
   actions: {
