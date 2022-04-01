@@ -16,13 +16,13 @@
           <td>{{ opinion.game }}</td>
           <td>{{ opinion.opinion }}</td>
           <td>
-            <button class="btn btn-danger" @click="deleteOpinion(opinion)">
+            <button class="btn btn-danger" @click="DELETE_OPINION(i)">
               Eliminar
             </button>
           </td>
           <td>
             <button class="btn btn-info">
-              <router-link :to="'/edit_opinion/' + (i + 1)">Editar</router-link>
+              <router-link :to="'/edit_opinion/' + i">Editar</router-link>
             </button>
           </td>
         </tr>
@@ -38,9 +38,6 @@ export default {
   name: "TableOpinions",
   methods: {
     ...mapMutations(["DELETE_OPINION"]),
-    deleteOpinion(opinion) {
-      this.DELETE_OPINION(opinion);
-    },
   },
   props: {
     opinions: {

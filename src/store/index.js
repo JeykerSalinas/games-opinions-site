@@ -15,7 +15,12 @@ export default new Vuex.Store({
       {
         name: "Jeyker Salinas",
         game: "The Last of Us",
-        opinion: "Me gusta mucho el curso de Vue.js",
+        opinion: "Soy la segunda opinion",
+      },
+      {
+        name: "Jeyker Salinas",
+        game: "The Last of Us",
+        opinion: "Soy la tercera opinion",
       },
     ],
   },
@@ -29,6 +34,10 @@ export default new Vuex.Store({
     },
     DELETE_OPINION(state, payload) {
       state.myOpinions.splice(payload, 1);
+    },
+    EDIT_OPINION(state, payload) {
+      state.myOpinions[payload.i].name = payload.name;
+      state.myOpinions[payload.i].opinion = payload.opinion;
     },
   },
   actions: {

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="text-center">Editando las opiniones de: JUEGO</h1>
+    <h1 class="text-center">
+      Editando las opiniones de: {{ myOpinions[myOpinion].game }}
+    </h1>
     <div class="m-4 p-4">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nombre</label>
@@ -8,7 +10,7 @@
           type="email"
           class="form-control"
           id="exampleFormControlInput1"
-          v-model="this.myOpinions[this.myOpinion].name"
+          v-model="newName"
         />
       </div>
       <div class="mb-3">
@@ -19,7 +21,7 @@
           class="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
-          v-model="this.myOpinions[this.myOpinion].opinion"
+          v-model="newOpinion"
         ></textarea>
       </div>
       <div class="mb-3">
@@ -37,22 +39,46 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
-      nombre: "jeyker",
+      nombre: "",
+      opinion: "",
     };
   },
   methods: {
+    ...mapMutations(["EDIT_OPINION"]),
     click() {
-      console.log("Holis");
+      this.EDIT_OPINION({
+        i: this.$route.params.id,
+        name: this.nombre,
+        opinion: this.opinion,
+      });
+      alert("Opinión modificada con éxito");
+      this.$router.push("/administracion");
     },
   },
   computed: {
     ...mapState(["myOpinions"]),
     myOpinion() {
       return this.$route.params.id;
+    },
+    newName: {
+      get() {
+        return this.myOpinions[this.myOpinion].name;
+      },
+      set(value) {
+        this.nombre = value;
+      },
+    },
+    newOpinion: {
+      get() {
+        return this.myOpinions[this.myOpinion].opinion;
+      },
+      set(value) {
+        this.opinion = value;
+      },
     },
   },
 };
