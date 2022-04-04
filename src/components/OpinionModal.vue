@@ -49,6 +49,7 @@
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            @click="eraseOpinion()"
           >
             Cerrar
           </button>
@@ -56,6 +57,7 @@
             type="button"
             class="btn btn-primary"
             @click="saveOpinion(game.name)"
+            data-bs-dismiss="modal"
           >
             Guardar
           </button>
@@ -94,6 +96,11 @@ export default {
         opinion: this.opinion,
       };
       this.SET_OPINION(newOpinion);
+      this.eraseOpinion();
+    },
+    eraseOpinion() {
+      this.nombre = "";
+      this.opinion = "";
     },
   },
 };
