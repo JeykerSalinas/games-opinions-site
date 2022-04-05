@@ -1,6 +1,6 @@
 <template>
   <div class="m-4 p-4">
-    <div class="accordion" id="accordionOpinion">
+    <div class="accordion accordion-flush" id="accordionOpinion">
       <div v-for="(opinion, i) in opinions" :key="i" class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
           <button

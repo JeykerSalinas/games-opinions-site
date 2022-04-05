@@ -6,23 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     myData: [],
-    myOpinions: [
-      {
-        name: "Jeyker Salinas",
-        game: "The Last of Us",
-        opinion: "Me gusta mucho el curso de Vue.js",
-      },
-      {
-        name: "Jeyker Salinas",
-        game: "The Last of Us",
-        opinion: "Soy la segunda opinion",
-      },
-      {
-        name: "Jeyker Salinas",
-        game: "The Last of Us",
-        opinion: "Soy la tercera opinion",
-      },
-    ],
+    myOpinions: [],
   },
   getters: {},
   mutations: {

@@ -10,7 +10,16 @@
       <OpinionModal :game="game" :id="i" />
       <!--card-->
       <div class="card w-auto" style="width: 18rem">
-        <img :src="game.background_image" class="card-img-top" alt="..." />
+        <div
+          class="card-img-top"
+          :style="{
+            'background-image': 'url(' + game.background_image + ')',
+            'background-size': 'cover',
+            'background-position': 'center',
+            'background-repeat': 'no-repeat',
+            height: '40vh',
+          }"
+        ></div>
         <div class="card-body">
           <h5 class="card-title">{{ game.name }}</h5>
         </div>
